@@ -1,11 +1,11 @@
-<h3>My Todo</h3>
+<h1>My Todo</h1>
  <form action="/todos" method="POST">
    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
    <input name="text" placeholder="Input here...">
    <button type="submit">ADD</button>
  </form>
 
- <h5>Todo List</h5>
+ <h2>Todo List</h2>
  <ul>
    <% @todos.each do |todo| %>
    <li>
