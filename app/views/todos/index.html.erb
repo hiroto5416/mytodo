@@ -1,0 +1,22 @@
+<h3>My Todo</h3>
+ <form action="/todos" method="POST">
+   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+   <input name="text" placeholder="Input here...">
+   <button type="submit">ADD</button>
+ </form>
+
+ <h5>Todo List</h5>
+ <ul>
+   <% @todos.each do |todo| %>
+   <li>
+     <%= todo.text %>
+     <form action="/todos/<%= todo.id %>"
+           style="display: inline;" 
+           method="POST">
+       <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+       <input name="_method" type="hidden" value="DELETE">
+       <button type="submit">DEL</button>
+     </form>
+   </li>
+   <% end %>
+ </ul>
